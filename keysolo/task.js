@@ -18,22 +18,17 @@ class Game {
 
   
   registerEvents() {
-    console.log(this.currentSymbol.textContent);
-    let arr = [];
+  
     document.onkeyup = (event) => {
       let s = event.key;
-      console.log(s);
-      arr.push(s);
-      for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
-        console.log(arr[i], console.log(this.currentSymbol.textContent));
-      }
+      if (s == this.currentSymbol.textContent){
+        this.success();
+      } else {
+        this.fail();
+      }    
     };
-
-    // не понимаю как нужно сравнивать this.currentSymbol.textContent и введенный символ
-
-    /*
-      TODO:
+    
+     /* TODO:
       Написать обработчик события, который откликается
       на каждый введённый символ.
       В случае правильного ввода слова вызываем this.success()
